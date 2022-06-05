@@ -9,7 +9,7 @@ services:
       - "81:81"
       - "443:443"
     environment:
-      DB_MYSQL_HOST: "db"
+      DB_MYSQL_HOST: "192.168.32.3"
       DB_MYSQL_PORT: 3306
       DB_MYSQL_USER: "admin"
       DB_MYSQL_PASSWORD: "Lu2504765#"
@@ -17,6 +17,7 @@ services:
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
+      - ./config.json:/app/config/production.json
     depends_on:
       - db
   db:
