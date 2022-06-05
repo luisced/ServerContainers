@@ -1,8 +1,8 @@
 version: "3"
 services:
   networks:
-    - vs-codeserver_default:
-        external: true
+    vs-codeserver_default:
+      external: true
 
   nginx-proxy-manager:
     container_name: nginx-proxy-manager
