@@ -1,6 +1,7 @@
 version: "3"
 services:
-  app:
+  nginx-proxy-manager:
+    container_name: nginx-proxy-manager
     image: "jc21/nginx-proxy-manager:latest"
     ports:
       - "80:80"
@@ -9,18 +10,20 @@ services:
     environment:
       DB_MYSQL_HOST: "db"
       DB_MYSQL_PORT: 3306
-      DB_MYSQL_USER: "npm"
-      DB_MYSQL_PASSWORD: "npm"
-      DB_MYSQL_NAME: "npm"
+      DB_MYSQL_USER: "admin"
+      DB_MYSQL_PASSWORD: "Lu2504765#"
+      DB_MYSQL_NAME: "proxy_db"
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
+
   db:
-    image: "jc21/mariadb-aria:latest"
+    container_name: nginx-proxy-manager-db
+    image: "yobasystems/alpine-mariadb"
     environment:
-      MYSQL_ROOT_PASSWORD: "npm"
-      MYSQL_DATABASE: "npm"
-      MYSQL_USER: "npm"
-      MYSQL_PASSWORD: "npm"
+      MYSQL_ROOT_PASSWORD: "Lu557196714657529564#"
+      MYSQL_DATABASE: "proxy_db"
+      MYSQL_USER: "nginx_user"
+      MYSQL_PASSWORD: "Lu2504765#"
     volumes:
       - ./data/mysql:/var/lib/mysql
