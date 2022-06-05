@@ -21,7 +21,7 @@ services:
       - db
   db:
     container_name: nginx-proxy-manager-db
-    image: "jc21/mariadb-aria:latest"
+    image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: "Lu557196714657529564#"
       MYSQL_DATABASE: "proxy_db"
